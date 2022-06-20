@@ -2,26 +2,33 @@
 
 namespace App\Entity;
 
-use App\Repository\PersonneRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\PersonneRepository;
+use Doctrine\Common\Collections\Collection;
+use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: PersonneRepository::class)]
+#[ApiResource()]
 class Personne
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
+    #[Groups(["personne:read", "adresse:read"])]
     private $id;
 
     #[ORM\Column(type: 'string', length: 30, nullable: true)]
+    #[Groups(["personne:read", "adresse:read"])]
     private $nom;
 
     #[ORM\Column(type: 'string', length: 30, nullable: true)]
+    #[Groups(["personne:read", "adresse:read"])]
     private $prenom;
 
-    #[ORM\ManyToMany(targetEntity: Adresse::class, cascade: ['persist'])]
+    #[ORM\ManyToMany(targetEntity: Adresse::class, inversedBy: 'personnes',  cascade: ['persist'])]
+    #[Groups("personne:read")]
     private $adresses;
 
     public function __construct()
@@ -32,6 +39,12 @@ class Personne
     public function getId(): ?int
     {
         return $this->id;
+    }
+    public function setId(?int $id): self
+    {
+        $this->id = $id;
+
+        return $this;
     }
 
     public function getNom(): ?string
@@ -79,6 +92,12 @@ class Personne
     {
         $this->adresses->removeElement($adress);
 
+        return $this;
+    }
+
+    public function setAdresses(array $adresses): self
+    {
+        $this->adresses = $adresses;
         return $this;
     }
 }

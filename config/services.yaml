@@ -6,10 +6,16 @@
 parameters:
 
 services:
+    # get_set_method_normalizer:
+    #     class: Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer
+    #     tags: [serializer.normalizer]
+
+
     # default configuration for services in *this* file
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
