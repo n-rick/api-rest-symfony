@@ -42,8 +42,8 @@ class Personne
     #[Assert\Length(
         min: 2,
         max: 20,
-        minMessage: "Le nom doit contenir au moins {{ limit }} caract`eres",
-        maxMessage: "Le nom doit contenir au plus {{ limit }} caract`eres",
+        minMessage: "Le nom doit contenir au moins {{ limit }} caractères",
+        maxMessage: "Le nom doit contenir au plus {{ limit }} caractères",
     )]
 
     private $nom;
