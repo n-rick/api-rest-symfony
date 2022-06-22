@@ -1,7 +1,4 @@
 {
-    "api-platform/api-pack": {
-        "version": "v1.3.0"
-    },
     "api-platform/core": {
         "version": "2.6",
         "recipe": {
@@ -118,6 +115,27 @@
     "laminas/laminas-code": {
         "version": "4.5.2"
     },
+    "lcobucci/clock": {
+        "version": "2.2.0"
+    },
+    "lcobucci/jwt": {
+        "version": "4.0.4"
+    },
+    "lexik/jwt-authentication-bundle": {
+        "version": "2.16",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "2.5",
+            "ref": "5b2157bcd5778166a5696e42f552ad36529a07a6"
+        },
+        "files": [
+            "./config/packages/lexik_jwt_authentication.yaml"
+        ]
+    },
+    "namshi/jose": {
+        "version": "7.2.3"
+    },
     "nelmio/cors-bundle": {
         "version": "2.2",
         "recipe": {
@@ -159,6 +177,9 @@
     },
     "psr/log": {
         "version": "3.0.0"
+    },
+    "stella-maris/clock": {
+        "version": "0.1.4"
     },
     "symfony/asset": {
         "version": "v6.1.0"
@@ -260,9 +281,6 @@
             "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
         }
     },
-    "symfony/orm-pack": {
-        "version": "v2.2.0"
-    },
     "symfony/password-hasher": {
         "version": "v6.1.0"
     },
@@ -274,6 +292,9 @@
     },
     "symfony/polyfill-mbstring": {
         "version": "v1.26.0"
+    },
+    "symfony/polyfill-php56": {
+        "version": "v1.20.0"
     },
     "symfony/property-access": {
         "version": "v6.1.0"
@@ -323,9 +344,6 @@
     },
     "symfony/serializer": {
         "version": "v6.1.1"
-    },
-    "symfony/serializer-pack": {
-        "version": "v1.1.0"
     },
     "symfony/service-contracts": {
         "version": "v3.1.0"
